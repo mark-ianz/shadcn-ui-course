@@ -46,9 +46,40 @@ import {
   ThickArrowDownIcon,
   ThickArrowUpIcon,
 } from "@radix-ui/react-icons";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
+type MockContent = {
+  id: string;
+  title: string;
+  description: string;
+};
 
 function App() {
-  const [date, setDate] = useState<Date>(subDays(new Date(), 1));
+  const [mockContent, setMockContent] = useState<MockContent[]>([
+    {
+      id: "1",
+      title: "MJ The GOAT",
+      description: "Michael jordan twerked off vs lebron james",
+    },
+    {
+      id: "2",
+      title: "GTX 1650",
+      description:
+        "They said that GTX 1650 is an outdated GPU, but in my opinion it's not.",
+    },
+    {
+      id: "3",
+      title: "shadcn/ui",
+      description:
+        "Shad CN is just sooo good, it saves me from pain on designing",
+    },
+  ]);
 
   return (
     <div className="flex flex-col gap-4">
@@ -182,6 +213,54 @@ function App() {
           <MoveIcon className="w-6 h-6" />
         </CardFooter>
       </Card>
+
+      <div className="flex items-center justify-center">
+        <Carousel className="w-full max-w-xs">
+          <CarouselContent>
+            {mockContent.map((content) => (
+              <CarouselItem key={content.id}>
+                <Card className="p-4">
+                  <CardContent className="p-0 flex flex-col min-h-44">
+                    <CardTitle className="mb-2 text-lg">
+                      {content.title}
+                    </CardTitle>
+                    <CardDescription>{content.description}</CardDescription>
+                    <CardFooter className="justify-end p-0 mt-auto">
+                      <AlertDialog>
+                        <AlertDialogTrigger asChild>
+                          <Button>Delete</Button>
+                        </AlertDialogTrigger>
+                        <AlertDialogContent>
+                          <AlertDialogTitle>
+                            Do you want to delete this content?
+                          </AlertDialogTitle>
+                          <AlertDialogDescription>
+                            This action cannot be undone
+                          </AlertDialogDescription>
+                          <AlertDialogFooter>
+                            <AlertDialogCancel>Cancel</AlertDialogCancel>
+                            <AlertDialogAction
+                              onClick={() => {
+                                setMockContent((mockContent) =>
+                                  mockContent.filter((c) => c.id !== content.id)
+                                );
+                              }}
+                            >
+                              Delete
+                            </AlertDialogAction>
+                          </AlertDialogFooter>
+                        </AlertDialogContent>
+                      </AlertDialog>
+                    </CardFooter>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </div>
     </div>
   );
 }
