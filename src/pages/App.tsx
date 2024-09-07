@@ -1,10 +1,9 @@
-import "./index.css";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "./components/ui/accordion";
+} from "../components/ui/accordion";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import {
   AlertDialog,
@@ -18,9 +17,9 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Button } from "./components/ui/button";
-import { AspectRatio } from "./components/ui/aspect-ratio";
-import kai_sotto_goat from "./assets/kai_sotto_goat.png";
+import { Button } from "../components/ui/button";
+import { AspectRatio } from "../components/ui/aspect-ratio";
+import kai_sotto_goat from "../assets/kai_sotto_goat.png";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -31,7 +30,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Slash } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function App() {
   return (
@@ -130,11 +129,15 @@ function App() {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink>Home</BreadcrumbLink>
+            <BreadcrumbLink asChild>
+              <Link to={"home"}>Home</Link>
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink>Playground</BreadcrumbLink>
+            <BreadcrumbLink asChild>
+              <Link to={"about"}>About</Link>
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
