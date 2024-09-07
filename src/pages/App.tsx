@@ -31,8 +31,13 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom";
+import { Calendar } from "@/components/ui/calendar";
+import { useState } from "react";
+import { subDays } from "date-fns";
 
 function App() {
+  const [date, setDate] = useState<Date>(subDays(new Date(), 1));
+
   return (
     <div className="flex flex-col gap-4">
       <h1 className="font-semibold text-lg">Accordion Test</h1>
@@ -69,14 +74,12 @@ function App() {
           </AccordionContent>
         </AccordionItem>
       </Accordion>
-
       <Alert>
         <AlertTitle>Hello!</AlertTitle>
         <AlertDescription>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit.
         </AlertDescription>
       </Alert>
-
       <div>
         <AlertDialog>
           <AlertDialogTrigger asChild>
@@ -106,11 +109,9 @@ function App() {
           <AlertDialogOverlay className="bg-black opacity-35"></AlertDialogOverlay>
         </AlertDialog>
       </div>
-
       <AspectRatio ratio={16 / 9}>
         <img src={kai_sotto_goat} alt="Kai Sotto The Goat" />
       </AspectRatio>
-
       <div>
         <Avatar>
           <AvatarImage src="https://github.com/shadcn.png" />
@@ -121,11 +122,9 @@ function App() {
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
       </div>
-
       <div>
         <Badge variant={"secondary"}>Admin</Badge>
       </div>
-
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -145,8 +144,15 @@ function App() {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-
-      <Button>Hello</Button>
+      <div>
+        <Button>Hello</Button>
+      </div>
+      <div>
+        <Calendar
+          mode="single"
+          className="border w-fit rounded-md"
+        />
+      </div>
     </div>
   );
 }
