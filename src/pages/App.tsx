@@ -32,7 +32,6 @@ import {
 import { Link } from "react-router-dom";
 import { Calendar } from "@/components/ui/calendar";
 import { useState } from "react";
-import { subDays } from "date-fns";
 import {
   Card,
   CardContent,
@@ -53,6 +52,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Checkbox } from "@/components/ui/checkbox";
 
 type MockContent = {
   id: string;
@@ -261,6 +261,8 @@ function App() {
           <CarouselNext />
         </Carousel>
       </div>
+
+      <Checkbox onCheckedChange={(e) => console.log(e.valueOf())} />
     </div>
   );
 }
