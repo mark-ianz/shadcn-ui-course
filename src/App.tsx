@@ -6,6 +6,20 @@ import {
   AccordionTrigger,
 } from "./components/ui/accordion";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
+  AlertDialogPortal,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { Button } from "./components/ui/button";
 
 function App() {
   return (
@@ -45,12 +59,40 @@ function App() {
         </AccordionItem>
       </Accordion>
 
-      <Alert>
+      <Alert className="mt-4">
         <AlertTitle>Hello!</AlertTitle>
         <AlertDescription>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit.
         </AlertDescription>
       </Alert>
+
+      <AlertDialog>
+        <AlertDialogTrigger asChild>
+          <Button>Open</Button>
+        </AlertDialogTrigger>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              Do you want to unfuck your brain?
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              If your brain is fucked, unfuck it. Unfucking your brain cannot be
+              undone
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+
+          <AlertDialogFooter>
+            <AlertDialogCancel>No way</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => console.log("Brain successfully unfucked.")}
+            >
+              Unfuck my brain
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+
+        <AlertDialogOverlay className="bg-black opacity-35"></AlertDialogOverlay>
+      </AlertDialog>
     </>
   );
 }
