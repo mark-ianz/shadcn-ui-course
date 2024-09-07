@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { Button } from "./components/ui/button";
 import "./index.css";
 import {
   Accordion,
@@ -7,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./components/ui/accordion";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 function App() {
   return (
@@ -45,6 +44,13 @@ function App() {
           </AccordionContent>
         </AccordionItem>
       </Accordion>
+
+      <Alert>
+        <AlertTitle>Hello!</AlertTitle>
+        <AlertDescription>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        </AlertDescription>
+      </Alert>
     </>
   );
 }
