@@ -15,15 +15,16 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogOverlay,
-  AlertDialogPortal,
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "./components/ui/button";
+import { AspectRatio } from "./components/ui/aspect-ratio";
+import kai_sotto_goat from "./assets/kai_sotto_goat.png";
 
 function App() {
   return (
-    <>
+    <div className="flex flex-col gap-4">
       <h1 className="font-semibold text-lg">Accordion Test</h1>
       <Accordion type="multiple">
         <AccordionItem value="item-1">
@@ -59,41 +60,47 @@ function App() {
         </AccordionItem>
       </Accordion>
 
-      <Alert className="mt-4">
+      <Alert>
         <AlertTitle>Hello!</AlertTitle>
         <AlertDescription>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit.
         </AlertDescription>
       </Alert>
 
-      <AlertDialog>
-        <AlertDialogTrigger asChild>
-          <Button>Open</Button>
-        </AlertDialogTrigger>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>
-              Do you want to unfuck your brain?
-            </AlertDialogTitle>
-            <AlertDialogDescription>
-              If your brain is fucked, unfuck it. Unfucking your brain cannot be
-              undone
-            </AlertDialogDescription>
-          </AlertDialogHeader>
+      <div>
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button>Open</Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>
+                Do you want to unfuck your brain?
+              </AlertDialogTitle>
+              <AlertDialogDescription>
+                If your brain is fucked, unfuck it. Unfucking your brain cannot
+                be undone
+              </AlertDialogDescription>
+            </AlertDialogHeader>
 
-          <AlertDialogFooter>
-            <AlertDialogCancel>No way</AlertDialogCancel>
-            <AlertDialogAction
-              onClick={() => console.log("Brain successfully unfucked.")}
-            >
-              Unfuck my brain
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
+            <AlertDialogFooter>
+              <AlertDialogCancel>No way</AlertDialogCancel>
+              <AlertDialogAction
+                onClick={() => console.log("Brain successfully unfucked.")}
+              >
+                Unfuck my brain
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
 
-        <AlertDialogOverlay className="bg-black opacity-35"></AlertDialogOverlay>
-      </AlertDialog>
-    </>
+          <AlertDialogOverlay className="bg-black opacity-35"></AlertDialogOverlay>
+        </AlertDialog>
+      </div>
+
+      <AspectRatio ratio={16 / 9}>
+        <img src={kai_sotto_goat} alt="Kai Sotto The Goat" />
+      </AspectRatio>
+    </div>
   );
 }
 
