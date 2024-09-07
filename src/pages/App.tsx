@@ -41,6 +41,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
+  DropdownMenuIcon,
   MoveIcon,
   ThickArrowDownIcon,
   ThickArrowUpIcon,
@@ -53,6 +54,11 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Collapsible } from "@/components/ui/collapsible";
+import {
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@radix-ui/react-collapsible";
 
 type MockContent = {
   id: string;
@@ -263,6 +269,25 @@ function App() {
       </div>
 
       <Checkbox onCheckedChange={(e) => console.log(e.valueOf())} />
+
+      <Collapsible>
+        <div className="flex items-center gap-2">
+          <h1>/mark-ianz Top Repositories</h1>
+          <CollapsibleTrigger asChild>
+            <DropdownMenuIcon className="cursor-pointer w-6 h-6" />
+          </CollapsibleTrigger>
+        </div>
+
+        <div className="border p-4 rounded-md w-40">
+          cuisinatin
+        </div>
+
+        <CollapsibleContent>
+          <div className="border p-4 rounded-md w-40">
+            Lorem ipsum dolor sit amet.
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
     </div>
   );
 }
