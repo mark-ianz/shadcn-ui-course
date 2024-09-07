@@ -27,13 +27,25 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom";
 import { Calendar } from "@/components/ui/calendar";
 import { useState } from "react";
 import { subDays } from "date-fns";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  MoveIcon,
+  ThickArrowDownIcon,
+  ThickArrowUpIcon,
+} from "@radix-ui/react-icons";
 
 function App() {
   const [date, setDate] = useState<Date>(subDays(new Date(), 1));
@@ -147,12 +159,29 @@ function App() {
       <div>
         <Button>Hello</Button>
       </div>
-      <div>
-        <Calendar
-          mode="single"
-          className="border w-fit rounded-md"
-        />
-      </div>
+      <Calendar mode="single" className="border w-fit rounded-md" />
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Push Day</CardTitle>
+          <CardDescription>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum,
+            perspiciatis?
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <img
+            src={kai_sotto_goat}
+            alt="KAI SOTTO MY GOAT"
+            className="w-full h-96 object-contain bg-black bg-opacity-10"
+          />
+        </CardContent>
+        <CardFooter className="gap-4">
+          <ThickArrowUpIcon className="w-6 h-6" />
+          <ThickArrowDownIcon className="w-6 h-6" />
+          <MoveIcon className="w-6 h-6" />
+        </CardFooter>
+      </Card>
     </div>
   );
 }
