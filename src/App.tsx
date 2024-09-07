@@ -21,6 +21,7 @@ import {
 import { Button } from "./components/ui/button";
 import { AspectRatio } from "./components/ui/aspect-ratio";
 import kai_sotto_goat from "./assets/kai_sotto_goat.png";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 function App() {
   return (
@@ -100,6 +101,17 @@ function App() {
       <AspectRatio ratio={16 / 9}>
         <img src={kai_sotto_goat} alt="Kai Sotto The Goat" />
       </AspectRatio>
+
+      <div>
+        <Avatar>
+          <AvatarImage src="https://github.com/shadcn.png" />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
+        <Avatar>
+          <AvatarImage src={kai_sotto_goat} />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
+      </div>
     </div>
   );
 }
