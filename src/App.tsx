@@ -22,6 +22,7 @@ import { Button } from "./components/ui/button";
 import { AspectRatio } from "./components/ui/aspect-ratio";
 import kai_sotto_goat from "./assets/kai_sotto_goat.png";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 
 function App() {
   return (
@@ -111,6 +112,10 @@ function App() {
           <AvatarImage src={kai_sotto_goat} />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
+      </div>
+
+      <div>
+        <Badge variant={"secondary"}>Admin</Badge>
       </div>
     </div>
   );
