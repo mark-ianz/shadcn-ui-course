@@ -83,7 +83,7 @@ import {
   DialogTrigger,
 } from "@radix-ui/react-dialog";
 import LoginForm from "@/components/forms/LoginForm";
-import { DialogHeader } from "@/components/ui/dialog";
+import { DialogFooter, DialogHeader } from "@/components/ui/dialog";
 
 type MockContent = {
   id: string;
@@ -367,7 +367,7 @@ function App() {
       </div>
 
       <Dialog>
-        <div className="flex items-center justif">
+        <div className="flex items-center justify-center">
           <DialogTrigger asChild>
             <Button>Yow</Button>
           </DialogTrigger>
@@ -377,6 +377,7 @@ function App() {
             <DialogTitle>Login</DialogTitle>
             <DialogDescription>Join us now</DialogDescription>
           </DialogHeader>
+          <DialogFooter>Footer</DialogFooter>
         </DialogContent>
       </Dialog>
     </div>
