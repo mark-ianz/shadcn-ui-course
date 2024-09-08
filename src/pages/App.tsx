@@ -464,7 +464,7 @@ function App() {
         <Input id="email" className="w-56" type="email" />
       </div>
 
-      <InputOTP maxLength={6} containerClassName="flex-col items-start" >
+      <InputOTP maxLength={6} containerClassName="flex-col items-start">
         <p>Enter OTP</p>
         <InputOTPGroup>
           {Array.from({ length: 6 }).map((_, index) => (
