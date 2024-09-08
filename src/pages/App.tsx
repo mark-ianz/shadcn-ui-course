@@ -103,6 +103,11 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
 } from "@radix-ui/react-dropdown-menu";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 type MockContent = {
   id: string;
@@ -431,13 +436,33 @@ function App() {
           align="start"
         >
           {options.map((option: Option, index: number) => (
-            <DropdownMenuItem key={index} className="p-2 rounded-md hover:bg-neutral-100 outline-none">
+            <DropdownMenuItem
+              key={index}
+              className="p-2 rounded-md hover:bg-neutral-100 outline-none"
+            >
               <p>{option.name}</p>
             </DropdownMenuItem>
           ))}
         </DropdownMenuContent>
       </DropdownMenu>
 
+      <HoverCard>
+        <HoverCardTrigger asChild>
+          <Button variant={"link"}>@kaisotto69</Button>
+        </HoverCardTrigger>
+        <HoverCardContent className="flex gap-2 text-sm">
+          <Avatar>
+            <AvatarImage src={kai_sotto_goat} />
+          </Avatar>
+          <div>
+            <p className="font-semibold">Kai Sotto</p>
+            <p className="font-thinner">
+              He is the greatest basketball player of all time. Filipino pride
+              #1 GOAT
+            </p>
+          </div>
+        </HoverCardContent>
+      </HoverCard>
     </div>
   );
 }
@@ -449,3 +474,4 @@ export default App;
 // Combo Box
 // Command
 // Data table
+// Form
