@@ -42,6 +42,9 @@ import {
 } from "@/components/ui/card";
 import {
   CalendarIcon,
+  ColorWheelIcon,
+  DotsHorizontalIcon,
+  DotsVerticalIcon,
   DropdownMenuIcon,
   MoveIcon,
   ThickArrowDownIcon,
@@ -84,12 +87,30 @@ import {
 } from "@radix-ui/react-dialog";
 import LoginForm from "@/components/forms/LoginForm";
 import { DialogFooter, DialogHeader } from "@/components/ui/dialog";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenuItem,
+  DropdownMenuLabel,
+} from "@radix-ui/react-dropdown-menu";
 
 type MockContent = {
   id: string;
   title: string;
   description: string;
 };
+
+type Option = { name: string };
 
 function App() {
   const [mockContent, setMockContent] = useState<MockContent[]>([
@@ -109,6 +130,24 @@ function App() {
       title: "shadcn/ui",
       description:
         "Shad CN is just sooo good, it saves me from pain on designing",
+    },
+  ]);
+
+  const [options, _] = useState<Option[]>([
+    {
+      name: "Refresh",
+    },
+    {
+      name: "Settings",
+    },
+    {
+      name: "Send Feedback",
+    },
+    {
+      name: "Help",
+    },
+    {
+      name: "Signout",
     },
   ]);
 
@@ -380,6 +419,36 @@ function App() {
           <DialogFooter>Footer</DialogFooter>
         </DialogContent>
       </Dialog>
+
+      <DropdownMenu>
+        <div>
+          <DropdownMenuTrigger asChild>
+            <DotsVerticalIcon className="w-6 h-6" />
+          </DropdownMenuTrigger>
+        </div>
+        <DropdownMenuContent
+          className="rounded-md p-4 w-56 text-sm"
+          align="start"
+        >
+          {options.map((option: Option, index: number) => (
+            <DropdownMenuItem key={index} className="p-2 rounded-md">
+              <p>{option.name}</p>
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+      <DropdownMenu>
+        <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>Profile</DropdownMenuItem>
+          <DropdownMenuItem>Billing</DropdownMenuItem>
+          <DropdownMenuItem>Team</DropdownMenuItem>
+          <DropdownMenuItem>Subscription</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   );
 }
