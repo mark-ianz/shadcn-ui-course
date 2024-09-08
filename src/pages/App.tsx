@@ -41,6 +41,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
+  CalendarIcon,
   DropdownMenuIcon,
   MoveIcon,
   ThickArrowDownIcon,
@@ -68,6 +69,12 @@ import {
   ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from "@/components/ui/context-menu";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { format } from "date-fns";
 
 type MockContent = {
   id: string;
@@ -96,6 +103,7 @@ function App() {
     },
   ]);
 
+  const [date, setDate] = useState<Date | null>();
   return (
     <div className="flex flex-col gap-4">
       <h1 className="font-semibold text-lg">Accordion Test</h1>
@@ -334,8 +342,28 @@ function App() {
           </ContextMenuItem>
         </ContextMenuContent>
       </ContextMenu>
+
+      <div className="flex items-center justify-center">
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button className="justify-start gap-2">
+              <CalendarIcon />
+              <p>{date ? format(date, "PPP") : "Select date"}</p>
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent>
+            <Calendar mode="single" onSelect={setDate} selected={date} />
+          </PopoverContent>
+        </Popover>
+      </div>
     </div>
   );
 }
 
 export default App;
+
+// Skipped:
+// Chart
+// Combo Box
+// Command
+// Data table
