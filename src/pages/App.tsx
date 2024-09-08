@@ -431,24 +431,13 @@ function App() {
           align="start"
         >
           {options.map((option: Option, index: number) => (
-            <DropdownMenuItem key={index} className="p-2 rounded-md">
+            <DropdownMenuItem key={index} className="p-2 rounded-md hover:bg-neutral-100 outline-none">
               <p>{option.name}</p>
             </DropdownMenuItem>
           ))}
         </DropdownMenuContent>
       </DropdownMenu>
 
-      <DropdownMenu>
-        <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>Billing</DropdownMenuItem>
-          <DropdownMenuItem>Team</DropdownMenuItem>
-          <DropdownMenuItem>Subscription</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
     </div>
   );
 }
