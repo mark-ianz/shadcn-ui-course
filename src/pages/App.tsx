@@ -74,7 +74,16 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { format } from "date-fns";
+import { addDays, format } from "date-fns";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger,
+} from "@radix-ui/react-dialog";
+import LoginForm from "@/components/forms/LoginForm";
+import { DialogHeader } from "@/components/ui/dialog";
 
 type MockContent = {
   id: string;
@@ -348,7 +357,7 @@ function App() {
           <PopoverTrigger asChild>
             <Button className="justify-start gap-2">
               <CalendarIcon />
-              <p>{date ? format(date, "PPP") : "Select date"}</p>
+              <p>{date ? format(date, "PPP") : "Birthdate"}</p>
             </Button>
           </PopoverTrigger>
           <PopoverContent>
@@ -356,6 +365,20 @@ function App() {
           </PopoverContent>
         </Popover>
       </div>
+
+      <Dialog>
+        <div className="flex items-center justif">
+          <DialogTrigger asChild>
+            <Button>Yow</Button>
+          </DialogTrigger>
+        </div>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Login</DialogTitle>
+            <DialogDescription>Join us now</DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
