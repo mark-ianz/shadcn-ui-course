@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient();
 
 export default function TanstackQuery() {
-
   return (
     // Provide the queryClient 
     // (just like in context to be accessible in every component inside the provider)

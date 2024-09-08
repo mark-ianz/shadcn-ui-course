@@ -1,10 +1,37 @@
-import { useQueryClient } from "@tanstack/react-query";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 
-type Props = {};
+type User = {
+  id: number;
+  name: string;
+};
 
-export default function Users({}: Props) {
+export default function Users() {
   // Access the client from the provider
-  const useClient = useQueryClient();
+  async function getUsers() {
+    const { data } = await axios.get<User[]>(
+      "https://jsonplaceholder.typicode.com/users"
+    );
 
-  return <div>Users</div>;
+    return data;
+  }
+
+  const { isPending, isError, data, error } = useQuery<User[], Error>({
+    queryKey: ["users"],
+    queryFn: getUsers,
+  });
+
+  if (isPending) return <p>Pending...</p>;
+
+  if (isError) {
+    return <span>Error: {error.message}</span>;
+  }
+
+  return (
+    <div>
+      {data?.map((user: User) => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </div>
+  );
 }
