@@ -42,11 +42,8 @@ import {
 } from "@/components/ui/card";
 import {
   CalendarIcon,
-  ColorWheelIcon,
-  DotsHorizontalIcon,
   DotsVerticalIcon,
   DropdownMenuIcon,
-  InputIcon,
   MoveIcon,
   ThickArrowDownIcon,
   ThickArrowUpIcon,
@@ -78,7 +75,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { addDays, format } from "date-fns";
+import { format } from "date-fns";
 import {
   Dialog,
   DialogContent,
@@ -86,24 +83,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@radix-ui/react-dialog";
-import LoginForm from "@/components/forms/LoginForm";
 import { DialogFooter, DialogHeader } from "@/components/ui/dialog";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  DropdownMenuItem,
-  DropdownMenuLabel,
-} from "@radix-ui/react-dropdown-menu";
+import { DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
 import {
   HoverCard,
   HoverCardContent,
