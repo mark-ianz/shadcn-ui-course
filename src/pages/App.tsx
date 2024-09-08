@@ -46,6 +46,7 @@ import {
   DotsHorizontalIcon,
   DotsVerticalIcon,
   DropdownMenuIcon,
+  InputIcon,
   MoveIcon,
   ThickArrowDownIcon,
   ThickArrowUpIcon,
@@ -108,6 +109,8 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 type MockContent = {
   id: string;
@@ -463,6 +466,11 @@ function App() {
           </div>
         </HoverCardContent>
       </HoverCard>
+
+      <div>
+        <Label htmlFor="email">Email</Label>
+        <Input id="email" className="w-56" type="email" />
+      </div>
     </div>
   );
 }
