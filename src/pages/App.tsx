@@ -97,6 +97,12 @@ import {
 } from "@/components/ui/hover-card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
 
 type MockContent = {
   id: string;
@@ -457,6 +463,15 @@ function App() {
         <Label htmlFor="email">Email</Label>
         <Input id="email" className="w-56" type="email" />
       </div>
+
+      <InputOTP maxLength={6} containerClassName="flex-col items-start" >
+        <p>Enter OTP</p>
+        <InputOTPGroup>
+          {Array.from({ length: 6 }).map((_, index) => (
+            <InputOTPSlot index={index} key={index} />
+          ))}
+        </InputOTPGroup>
+      </InputOTP>
     </div>
   );
 }
