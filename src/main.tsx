@@ -4,6 +4,7 @@ import App from "./pages/App.tsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./pages/About.tsx";
+import TanstackQuery from "./pages/TanstackQuery.tsx";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: "about",
     element: <About />,
+  },
+  {
+    path: "tanstack",
+    element: <TanstackQuery />,
   },
 ]);
 
