@@ -59,6 +59,15 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@radix-ui/react-collapsible";
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuSub,
+  ContextMenuSubContent,
+  ContextMenuSubTrigger,
+  ContextMenuTrigger,
+} from "@/components/ui/context-menu";
 
 type MockContent = {
   id: string;
@@ -278,16 +287,53 @@ function App() {
           </CollapsibleTrigger>
         </div>
 
-        <div className="border p-4 rounded-md w-40">
-          cuisinatin
-        </div>
+        <div className="border p-4 rounded-md w-40">cuisinatin</div>
 
-        <CollapsibleContent>
-          <div className="border p-4 rounded-md w-40">
-            Lorem ipsum dolor sit amet.
-          </div>
+        <CollapsibleContent className="flex gap-2 flex-col mt-2">
+          <div className="border p-4 rounded-md w-40">lib_sys</div>
+          <div className="border p-4 rounded-md w-40">fitracker</div>
         </CollapsibleContent>
       </Collapsible>
+
+      <ContextMenu>
+        <ContextMenuTrigger className="w-fit border border-dashed rounded-md p-4 text-gray-500">
+          Right Click Me!
+        </ContextMenuTrigger>
+        <ContextMenuContent>
+          <ContextMenuItem onClick={() => console.log("Friend request sent!")}>
+            Add Friend
+          </ContextMenuItem>
+          <ContextMenuItem
+            onClick={() => console.log("Routing to /profile/user...")}
+          >
+            View Profile
+          </ContextMenuItem>
+          <ContextMenuSub>
+            <ContextMenuSubTrigger>Posts</ContextMenuSubTrigger>
+            <ContextMenuSubContent>
+              <ContextMenuItem
+                onClick={() => console.log("visiting /cuisinatin")}
+              >
+                cuisinatin
+              </ContextMenuItem>
+              <ContextMenuItem
+                onClick={() => console.log("visiting /fitracker")}
+              >
+                fitracker
+              </ContextMenuItem>
+              <ContextMenuItem onClick={() => console.log("visiting /lib_sys")}>
+                lib_sys
+              </ContextMenuItem>
+            </ContextMenuSubContent>
+          </ContextMenuSub>
+          <ContextMenuItem onClick={() => console.log("User blocked")}>
+            Block
+          </ContextMenuItem>
+          <ContextMenuItem onClick={() => console.log("User reported")}>
+            Report
+          </ContextMenuItem>
+        </ContextMenuContent>
+      </ContextMenu>
     </div>
   );
 }
