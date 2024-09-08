@@ -103,7 +103,7 @@ function App() {
     },
   ]);
 
-  const [date, setDate] = useState<Date | null>();
+  const [date, setDate] = useState<Date | undefined>();
   return (
     <div className="flex flex-col gap-4">
       <h1 className="font-semibold text-lg">Accordion Test</h1>
