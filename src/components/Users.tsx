@@ -1,14 +1,15 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
-type User = {
+export type User = {
   id: number;
   name: string;
 };
 
 export default function Users() {
   // Access the client from the provider
-  async function getUsers() {
+  async function getUsers({ queryKey }: any) {
+    console.log(queryKey);
     const { data } = await axios.get<User[]>(
       "https://jsonplaceholder.typicode.com/users"
     );
@@ -17,7 +18,7 @@ export default function Users() {
   }
 
   const { isPending, isError, data, error } = useQuery<User[], Error>({
-    queryKey: ["users"],
+    queryKey: ["users", 1, { hello: "World" }],
     queryFn: getUsers,
   });
 
@@ -29,7 +30,7 @@ export default function Users() {
 
   return (
     <div>
-      {data?.map((user: User) => (
+      {data.map((user: User) => (
         <li key={user.id}>{user.name}</li>
       ))}
     </div>
