@@ -20,6 +20,7 @@ export default function Users() {
   const { isPending, isError, data, error } = useQuery<User[], Error>({
     queryKey: ["users", 1, { hello: "World" }],
     queryFn: getUsers,
+    staleTime: 1000 * 5,
   });
 
   if (isPending) return <p>Pending...</p>;
